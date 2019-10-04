@@ -42,7 +42,7 @@ public class Slingshot : MonoBehaviour {
         projectile = Instantiate(prefabProjectile) as GameObject;
         projectile.transform.position = launchPos;
         projectile.GetComponent<Rigidbody>().isKinematic = true;
-
+        //some issue here ^^
         projectileRigidbody = projectile.GetComponent<Rigidbody>();
         projectileRigidbody.isKinematic = true;
     }
@@ -70,6 +70,7 @@ public class Slingshot : MonoBehaviour {
             aimingMode = false;
             projectileRigidbody.isKinematic = false;
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
+            FollowCam.POI = projectile;
             projectile = null;
 
         }
